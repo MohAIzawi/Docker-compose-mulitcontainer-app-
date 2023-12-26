@@ -1,0 +1,19 @@
+version: '3'
+services:
+  frontend:
+    build: ./my-react-app
+    ports:
+      - "3000:80"
+  backend:
+    build: ./spring-boot-app
+    ports:
+      - "8080:8080"
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: react-app-database
+      MYSQL_USER: Mohamed
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
